@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Http requests Library
+gem "http"
 # Font Awesome Library
 gem "font-awesome-rails"
 # full Jquery rails library

@@ -1,0 +1,19 @@
+<section class='container container-pad text-center'>
+
+  <h1 class='text-center p-3'>
+    Download Instagram Stories 
+  </h1>
+  <p class='text-center'>
+    Enter instagram username and download the stories of your favorite users before they get deleted.
+  </p>
+  <%= form_tag('/search', method: :get) do %>
+    <div class='form-group text-center tf-container d-flex flex-row'>
+      <div class=" w-100">
+      <%= text_field_tag :q, params[:q] ||=nil,placeholder:'Username', autocomplete:'off', class:'form-control text-center ig-search-pad'%>
+      </div>
+      <div class=" ">
+        <%= submit_tag 'Search', class:'btn btn-primary font-weight-bold ig-search-pad'%>
+      </div>
+    </div>
+  <% end %>
+</section>
