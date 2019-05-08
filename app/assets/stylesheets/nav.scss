@@ -1,0 +1,34 @@
+  nav.navbar.top-nav {
+    background-color:#4B0082;
+  }
+  nav.navbar a.nav-link, .navbar-brand.site-brand, .navbar-brand.site-brand span, nav.navbar li.nav-item {
+    transition:0.5s;
+    font-size:1.2em;
+  } 
+  .navbar-brand.site-brand {
+    color:#CCC;
+  }
+  .navbar-brand.site-brand:hover {
+    color:#FFF;
+    text-shadow: 2px 2px 4px #CCC;
+  }
+  
+  .navbar-brand.site-brand:hover span {
+    color:red;
+  }
+  nav.navbar li.nav-item:hover{
+
+    border-radius:1em;
+  }
+  nav.navbar li.nav-item:hover a.nav-link{
+    color:#FFF;
+  }
+
+  footer nav.navbar li.nav-item a.nav-link{
+    color:#99ccff;
+    font-weight:bold;
+  }
+
+  .sm-pad {
+    padding-top: 5px
+  }

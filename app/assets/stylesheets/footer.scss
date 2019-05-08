@@ -1,0 +1,118 @@
+// footer styles
+$f-color:'#FFF';
+footer.footer {
+    position: relative;
+    width: 100%;
+    background-color: #222;
+    padding: 10px;
+    box-shadow: 0px -3px 5px #CCC;
+    color:#FFF;
+}
+
+footer.footer p {
+  color:#fff;
+}
+
+h1.footer-header {
+    padding-bottom: 5px;
+    color: $f-color;
+}
+
+footer li {
+    //margin-bottom: 20px; 
+    //text-align:center;
+}
+footer.footer.fixed-bottom ul.normal h1 {
+  font-size:1.1em;
+  font-weight:bold;
+  padding:0px;
+  margin: 10px 0px 5px 0px;
+}
+footer a{
+    color: #EEE;
+    
+    &:hover {
+      text-decoration:underline;
+      color:$f-color;
+    }
+}
+footer li {
+  list-style-type: none;
+}
+
+  h1.footer-heading {
+    font-size:1em;
+  }
+  .footer-top p, .footer-top h1 {
+    color:#8b8b8b;
+    font-size:0.8em;
+  }
+
+.footer-top p a {
+  color:#8b8b8b
+}
+  
+  div.footer-top {
+    background-color:#ececec;
+    min-height:60px;
+    padding:10px;
+  }
+  
+  footer.fixed-bottom {
+    padding:0px;
+  }
+  
+  footer {
+    background-color:#000;
+  }
+  a.quote:hover {
+    color:#FFF;
+  }
+  a.quote:active {
+      color:#FFF;
+    }
+  a.quote-left {
+    position:absolute;
+    bottom:0px;
+    right:20px;
+    font-size:1.5em;
+    color:#AAA;
+  }
+  a.quote-right {
+    position:absolute;
+    bottom:0px;
+    right:0px;
+    font-size:1.5em;
+    color:#AAA;
+  }
+  footer .carousel-inner blockquote {
+    border:none;
+    padding-top:0px;
+  }
+
+footer div.footer-bottom div.row div {
+  height:160px;
+}
+// Footer social media Icons
+
+Footer div.social-m-icons {
+    padding-right:10px;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+    margin-bottom:0.5em;
+    color:white;
+    width:100%;
+    text-align:center;
+}
+
+Footer div.social-m-icons svg{
+    position:relative;
+    height:3em;
+    width:3em;
+    z-index:1;
+    padding-left:2px;
+}
+
+Footer.footer div.container.footer-bottom {
+  padding:20px;
+}

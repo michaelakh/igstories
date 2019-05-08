@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <%= render 'layouts/main/header'%>
+    <%= render 'layouts/main/nav'%>
     <% flash.each do |key, value| %>
       <%= content_tag :div, value, class: "flash #{key}" %>
     <% end %>

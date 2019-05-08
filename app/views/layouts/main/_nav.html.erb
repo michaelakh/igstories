@@ -1,0 +1,25 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark top-nav">
+  <div class='container'>
+    <%= link_to 'IG|<span>Stories</span>'.html_safe, root_path, class:'navbar-brand site-brand' %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= link_to 'https://storiesig.com/', class:'nav-link' do %>
+             Stories IG
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '#', class:'nav-link' do %>
+             Contact
+          <% end %>
+        </li>
+        <li class='sm-pad'>
+          <%= render 'layouts/main/social_media_icons' %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

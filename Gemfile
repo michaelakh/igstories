@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Font Awesome Library
+gem "font-awesome-rails"
 # full Jquery rails library
 gem 'jquery-rails'
 # Bootstrap library
