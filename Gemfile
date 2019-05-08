@@ -5,7 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+# full Jquery rails library
+gem 'jquery-rails'
+# Bootstrap library
+gem 'bootstrap', '~> 4.3.1'
+# Pagination
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.7'
 # Use postgresql as the database for Active Record
@@ -40,6 +46,7 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'guard-rspec', require: false
+  gem 'mini_racer'
 end
 
 group :development do
