@@ -26,7 +26,7 @@ git clone https://github.com/michaelakh/igstories.git
 2. Open cd into the directory
 
 ``` console
-cd igstories_master
+cd igstories
 ```
 3. Install/update all gems
 
@@ -46,8 +46,6 @@ rake db:migrate
 
 ``` console
 bundle exec rspec
-```
-``` console
 rails s
 ```
 

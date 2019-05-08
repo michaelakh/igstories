@@ -39,6 +39,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'guard-rspec', require: false
 end
 
 group :development do
