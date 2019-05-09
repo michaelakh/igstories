@@ -1,0 +1,57 @@
+<section class='container container-pad'>
+  <h1 class='text-center'>
+    Instagram Story Highlights of <strong><%= @highlights['tray'][0]['user']['full_name']%></strong>
+  </h1>
+  <br>
+  <article>
+    <% @highlights['tray'].each do |highlight| %>
+      <% if highlight['id'].split('highlight:')[1] == params[:highlight_id] %>
+          <div class='d-block'>
+            <div class='text-center user-text-container'>
+              <h2>
+                <span class='font-weight-bold text-dark'><%=highlight['title']%></span>
+              </h2>
+            </div>
+            <div class='text-center'>
+              <%= image_tag(highlight['cover_media']['cropped_image_version']['url'], class:'img-fluid img-thumb')  %>
+            </div>
+          </div>
+          <br>
+        <% if highlight['items'].blank? %>
+          <p class='text-center'>
+            This application has restricted Access
+          </p>
+        <% else %>
+          <% highlight['items'].each do |image| %>
+            <% if image["video_versions"].blank? %>
+              <% @imgsrc = image['image_versions2']['candidates'].map{|image| "#{image['url']} #{image['width']}w"}.join(', ') %>
+              <div class='media-container'>
+                <img srcset='<%= @imgsrc %>' class='img-fluid img-box' >
+              </div>
+              <div class='img-caption'>
+                <div class='text-center'>
+                  <strong><%= time_passed((Time.now.to_i - image['taken_at'])/3600)%> Ago</strong> (<%= Time.at(image['taken_at']).strftime('%d/%m/%Y %H:%M:%S') %>)
+                </div>
+                <div class='download text-center'>
+                  <%= link_to 'Download', image['image_versions2']['candidates'][0]['url'], class:'btn btn-primary btn-lg', target:'_blank',rel:'noopener noreferrer', download:'download'%>
+                </div>
+              </div>
+            <% else %>
+              <div class='media-container'>
+                <%= video_tag(image["video_versions"][0]['url'],controls: true, autobuffer: true, class:'video-box') %>
+              </div>
+              <div class='img-caption'>
+                <div class='text-center'>
+                  <strong><%= time_passed((Time.now.to_i - image['taken_at'])/3600)%> Ago</strong> (<%= Time.at(image['taken_at']).strftime('%d/%m/%Y %H:%M:%S') %>)
+                </div>
+                <div class='download text-center'>
+                  <%= link_to 'Download', image["video_versions"][0]['url'], class:'btn btn-primary btn-lg', target:'_blank',rel:'noopener noreferrer', download:'download'%>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end; break if highlight['id'].split('highlight:')[1] == params[:highlight_id] %>
+    <% end %>
+  </article>
+</section>

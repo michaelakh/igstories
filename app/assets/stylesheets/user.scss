@@ -1,3 +1,71 @@
-// Place all the styles related to the user controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.img-thumb {
+  border-radius:10em;
+}
+.ig-verified {
+  background-color:#3897f0;
+  border-radius:4em;
+  color:#FFF;
+  padding:3px;
+  font-size:0.8em;
+}
+
+.story-index {
+  max-width: 900px;
+  margin:0 auto;
+  position:relative;
+  border-radius:2em;
+  transition:0.5s;
+}
+
+.story-index a {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+}
+
+.story-index.list:hover {
+  background-color:#ccc;
+  color:#2980b9 !important;
+}
+
+.pt-12 {
+  padding-top:12px;
+}
+.text-lh-1-2 {
+  line-height:1.2
+}
+.user-text-container {
+  padding:30px 10px 0px 10px;
+}
+
+.img-box {
+  max-height:1000px;
+  width:auto;
+}
+
+.media-container {
+  margin:0 auto;
+  text-align:center;
+}
+
+.img-caption {
+  padding:20px 0px 0px 0px;
+}
+.download {
+  padding:10px 0px 40px 0px;
+}
+
+.download a.btn {
+  font-size:1.3em;
+}
+
+.video-box {
+  width:100%;
+  max-height:80vh;
+}
+.img-fluid.img-thumb {
+  max-width:200px;
+  width:100%;
+}
