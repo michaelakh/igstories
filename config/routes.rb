@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   get 'disclaimer', to:'docs#disclaimer'
   
   #Messages 
-  get 'contact', to:'messages#welcome'
+  get 'contact', to:'messages#contact'
    
 end
