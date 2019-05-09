@@ -1,9 +1,5 @@
 <section class='container container-pad'>
-  <% if @response['status'] == 'fail' %>
-    <p class='text-center text-danger'>
-      <%= @response['message']%>
-    </p>
-  <% else %>
+  <% if @httprequest.status == 200 && @response['status'] == 'ok' %>
   <h1 class='text-center'>
     Instagram Stories of <%= @response['user']['full_name'] %>
   </h1>
@@ -49,5 +45,9 @@
       <% end %>
     <% end %>
   </article>
+  <% elsif @httprequest.status != 200 && @response.present? %>
+    <p class='text-center text-danger'>
+      <%= @response['message']%>
+    </p>
   <% end %>
 </section>

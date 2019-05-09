@@ -1,5 +1,6 @@
+<% highlight_found = false %>
 <section class='container container-pad'>
-  <% if @highlights['status'] == 'ok' %>
+  <% if @httprequest_highlights.status == 200 && @highlights['status'] == 'ok' %>
     <h1 class='text-center'>
       Instagram Story Highlights of <strong><%= @highlights['tray'][0]['user']['full_name']%></strong>
     </h1>
@@ -7,6 +8,7 @@
     <article>
       <% @highlights['tray'].each do |highlight| %>
         <% if highlight['id'].split('highlight:')[1] == params[:highlight_id] %>
+        <% highlight_found = true %>
             <div class='d-block'>
               <div class='text-center user-text-container'>
                 <h2>
@@ -54,9 +56,18 @@
           <% end %>
         <% end; break if highlight['id'].split('highlight:')[1] == params[:highlight_id] %>
       <% end %>
+      <% if highlight_found == false %>
+      <p class='text-center text-danger'>
+        The highlight was not found
+      </p>
+      <% end %>
     </article>
+  <% elsif @httprequest_highlights.status != 200 && @highlights.present? %>
+    <p class='text-center text-danger'>
+      <%= @highlights['message'] %>
+    </p>
   <% else %>
-    <p class='text-center'>
+    <p class='text-center text-danger'>
       this website has restricted access to StoryIG Api
     </p>
   <% end %>

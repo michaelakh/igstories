@@ -1,9 +1,5 @@
 <section class='container' >
-  <% if @response['status'] == 'fail' %>
-    <p class='text-center text-danger'>
-      <%= @response['message']%>
-    </p>
-  <% else %>
+  <% if @httprequest.status == 200 && @response['status'] == 'ok' %>
     <div class='d-flex story-index list'>
       <%= link_to '', "/stories/#{@response['user']['username']}" %>
       <div class='p-2'>
@@ -62,5 +58,13 @@
         <% end %>
       </div>
     <% end %>
+  <% elsif @httprequest.status != 200 && @response.present? %>
+    <p class='text-center text-danger'>
+      <%= @response['message']%>
+    </p>
+  <% else %>
+    <p class='text-center text-danger'>
+      There was an error with your request. Please try again
+    </p>
   <% end %>
 </section>

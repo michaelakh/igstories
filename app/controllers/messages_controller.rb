@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
   def contact
-    @title = 'Contact Me | IG Stories' 
+    @title = 'Contact Me' 
   end
 end
