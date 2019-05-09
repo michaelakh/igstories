@@ -1,0 +1,53 @@
+<section class='container container-pad'>
+  <% if @response['status'] == 'fail' %>
+    <p class='text-center text-danger'>
+      <%= @response['message']%>
+    </p>
+  <% else %>
+  <h1 class='text-center'>
+    Instagram Stories of <%= @response['user']['full_name'] %>
+  </h1>
+  <div class='d-block text-center'>
+    <%= image_tag(@response['user']['profile_pic_url'], class:'img-fluid img-thumb') %>
+  </div>
+  <p class='text-center p-3' style='font-size:1.3em;'>
+    <strong><%= @response['user']['username'] %></strong>
+  </p>
+  <article>
+  <% if @response['items'].blank? %>
+    <p class='text-center'>
+      0 Stories
+    </p>
+  <% else %>
+      <% @response['items'].reverse.each do |image| %>
+        <% if image["video_versions"].blank? %>
+          <% @imgsrc = image['image_versions2']['candidates'].map{|image| "#{image['url']} #{image['width']}w"}.join(', ') %>
+          <div class='media-container'>
+            <img srcset='<%= @imgsrc %>' class='img-fluid img-box' >
+          </div>
+          <div class='img-caption'>
+            <div class='text-center'>
+              <strong><%= time_passed((Time.now.to_i - image['taken_at'])/3600)%> Ago</strong> (<%= Time.at(image['taken_at']).strftime('%d/%m/%Y %H:%M:%S') %>)
+            </div>
+            <div class='download text-center'>
+              <%= link_to 'Download', image['image_versions2']['candidates'][0]['url'], class:'btn btn-primary btn-lg', target:'_blank',rel:'noopener noreferrer', download:'download'%>
+            </div>
+          </div>
+        <% else %>
+          <div class='media-container'>
+            <%= video_tag(image["video_versions"][0]['url'],controls: true, autobuffer: true, class:'video-box') %>
+          </div>
+          <div class='img-caption'>
+            <div class='text-center'>
+              <strong><%= time_passed((Time.now.to_i - image['taken_at'])/3600)%> Ago</strong> (<%= Time.at(image['taken_at']).strftime('%d/%m/%Y %H:%M:%S') %>)
+            </div>
+            <div class='download text-center'>
+              <%= link_to 'Download', image["video_versions"][0]['url'], class:'btn btn-primary btn-lg', target:'_blank',rel:'noopener noreferrer', download:'download'%>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </article>
+  <% end %>
+</section>
