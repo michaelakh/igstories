@@ -1,0 +1,66 @@
+<section class='container' >
+  <% if @response['status'] == 'fail' %>
+    <p class='text-center text-danger'>
+      <%= @response['message']%>
+    </p>
+  <% else %>
+    <div class='d-flex story-index list'>
+      <%= link_to '', "/stories/#{@response['user']['username']}" %>
+      <div class='p-2'>
+        <%= image_tag(@response['user']['profile_pic_url'], class:'img-fluid img-thumb') %>
+      </div>
+      <div class='w-100 user-text-container'>
+        <div class='text-lh-1-2'>
+          <span class='font-weight-bold text-dark' style='font-size:1.2em;'><%=@response['user']['username']%></span> 
+          <% if @response['user']['is_verified'] == true %>
+            <span class='ig-verified'><%= fa_icon "check"%></span>
+          <% end %>
+          <br>
+          <span class='text-muted'><%=@response['user']['full_name']%></span>
+        </div>
+        <% if @response['user']['is_private'] == true%>
+          <div class='pt-12'>
+            <span> This account is private</span>
+          </div>
+        <% elsif @response['items'].empty? %>
+        <div class='pt-12'>
+          <strong>0 Stories</strong>
+        </div>
+        <% else %>
+        <div class='pt-12'>
+          <% @time = ((Time.now.to_i - @response['items'][0]['taken_at'])/3600) %>
+          <strong>
+            <%= @response['items'].count == 1 ? "#{@response['items'].count} story" : "#{@response['items'].count} stories"  %>.
+          </strong> 
+          Last story was added about <%= time_passed(@time) %> ago
+        </div>
+        <div class=''>
+          <%= @highlights["tray"].count == 1 ? "1 highlight" : "#{@highlights["tray"].count} highlights"  %>
+        </div>
+        <% end %>
+      </div>
+
+    </div>
+    <% if @highlights['tray'].empty? != true %>
+      <div class='story-index container-pad'>
+        <h1 class='text-center'>
+          Stories Highlights
+        </h1>
+        <% @highlights['tray'].each do |highlight| %>
+          <div class='d-flex story-index list'>
+            <%= link_to '', "#{highlight['user']['username']}/highlights/#{highlight['id'].split('highlight:')[1]}" %>
+            <div class='p-2'>
+              <%= image_tag(highlight['cover_media']['cropped_image_version']['url'], class:'img-fluid img-thumb')  %>
+            </div>
+            <div class='w-100 user-text-container'>
+              <div class='text-lh-1-2'>
+                <span class='font-weight-bold text-dark' style='font-size:1.2em;'><%=highlight['title']%></span>.
+                <span class='text-muted'><%=time_passed((Time.now.to_i - highlight['latest_reel_media'])/3600)%></span> Ago
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</section>

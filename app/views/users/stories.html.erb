@@ -1,8 +1,3 @@
 
-<% @httprequest = HTTP.get("https://api.storiesig.com/stories/#{params[:q]}") %>
-<%= @response = JSON.parse(@httprequest) %>
-
-<% @httprequest_highlights = HTTP.get("https://api.storiesig.com/highlights/#{params[:q]}") %>
-<%= @highlights = JSON.parse(@httprequest_highlights) %>
 
 

@@ -13,7 +13,7 @@ RSpec.describe UsersController, type: :routing do
     end
     
     it "routes to #highlights" do
-      expect(:get => "/highlights/10101").to route_to("users#highlights", user_id:'10101')
+      expect(:get => "/user/highlights/10101").to route_to("users#highlights", highlight_id:'10101', user:'user')
     end
   
   end

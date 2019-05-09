@@ -4,12 +4,22 @@ class UsersController < ApplicationController
   end
   
   def search
+    @title = 'Stories Search | IG Stories'
+    @httprequest = HTTP.get("https://api.storiesig.com/stories/#{params[:q]}")
+    @response = JSON.parse(@httprequest)
+    
+    if @response['status'] != 'fail'
+      @httprequest_highlights = HTTP.get("https://api.storiesig.com/highlights/#{params[:q]}")
+      @highlights = JSON.parse(@httprequest_highlights)
+    end
   end
   
   def stories
   end
   
   def highlights
+    @httprequest_highlights = HTTP.get("https://api.storiesig.com/highlights/#{params[:user]}?highlight=#{params[:highlight_id]}")
+    @highlights = JSON.parse(@httprequest_highlights)
   end
   
 end

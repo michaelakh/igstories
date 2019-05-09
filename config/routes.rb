@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   #Users
   get 'search', to:'users#search'
   get 'stories/:user', to:'users#stories'
-  get 'highlights/:user_id', to:'users#highlights'
+  get ':user/highlights/:highlight_id', to:'users#highlights'
   
   #Docs
   get 'privacy_policy', to:'docs#privacy_policy'
