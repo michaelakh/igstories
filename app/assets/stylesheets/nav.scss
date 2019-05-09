@@ -3,6 +3,8 @@
   }
   nav.navbar a.nav-link, .navbar-brand.site-brand, .navbar-brand.site-brand span, nav.navbar li.nav-item {
     transition:0.5s;
+  } 
+  header.header nav.navbar a.nav-link,header.header .navbar-brand.site-brand,header.header .navbar-brand.site-brand span,header.header nav.navbar li.nav-item {
     font-size:1.2em;
   } 
   .navbar-brand.site-brand {
